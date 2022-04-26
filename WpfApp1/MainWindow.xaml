@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="0,0,567,0">
+
+
+
+        <Menu HorizontalAlignment="Left" Width="185" Margin="0,21,0,0"/>
+        <Button Content="Dashboard" HorizontalAlignment="Left" Margin="19,36,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="Chantier" HorizontalAlignment="Left" Margin="19,70,0,0" VerticalAlignment="Top"/>
+        <Button Content="Compagnon" HorizontalAlignment="Left" Margin="19,145,0,0" VerticalAlignment="Top"/>
+        <Button Content="Devis" HorizontalAlignment="Left" Margin="19,106,0,0" VerticalAlignment="Top"/>
+        <Button Content="Facture" HorizontalAlignment="Left" Margin="19,189,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="366,126,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock HorizontalAlignment="Left" Margin="438,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Width="142"/>
+
     </Grid>
 </Window>
