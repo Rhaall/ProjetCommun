@@ -9,23 +9,33 @@ namespace WpfApp1.modeles
 {
     class Chantier
     {
-        public int Id;
-        public string Adresse;
-        public string NomChantier;
-        public string commentaire;
-        public Devis[] devis;
-        public Facture[] factures;
+        public int _Id;
+        public string _Adresse;
+        public string _NomChantier;
+        public string _Commentaire;
+        public Devis[] _devis;
+        public Facture[] _factures;
 
         public Chantier(int id, string adresse, string nomChantier, string commentaire, Devis[] devis, Facture[] factures)
         {
-            Id = id;
-            Adresse = adresse;
-            NomChantier = nomChantier;
-            this.commentaire = commentaire;
-            this.devis = devis;
-            this.factures = factures;
+            _Id = id;
+            _Adresse = adresse;
+            _NomChantier = nomChantier;
+            this._Commentaire = commentaire;
+            this._devis = devis;
+            this._factures = factures;
+        }
+        public Chantier(int id, string adresse, string nomChantier, string commentaire)
+        {
+            _Id = id;
+            _Adresse = adresse;
+            _NomChantier = nomChantier;
+            this._Commentaire = commentaire;
+         
         }
 
-        
+        public Chantier()
+        {
+        }
     }
 }

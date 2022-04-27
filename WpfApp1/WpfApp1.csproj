@@ -107,9 +107,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="sqlite_conn\Open.cs" />
+    <Compile Include="modeles\ListChantier.cs" />
     <Compile Include="wrappers\WrapChantier.cs" />
-    <Compile Include="wrappers\dataAccess.cs" />
+    <Compile Include="wrappers\manageBDD.cs" />
+    <Compile Include="wrappers\WrapCompagnon.cs" />
+    <Compile Include="wrappers\WrapDevis.cs" />
+    <Compile Include="wrappers\WrapFacture.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="modeles\Chantier.cs" />
-    <Compile Include="modeles\Compagnons.cs" />
+    <Compile Include="modeles\Compagnon.cs" />
     <Compile Include="modeles\Devis.cs" />
     <Compile Include="modeles\Facture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

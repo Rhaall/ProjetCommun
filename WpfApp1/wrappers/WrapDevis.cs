@@ -1,75 +1,69 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Data.Sqlite;
-using System.Collections.Generic;
-using System;
-using System.Linq;
-using System.Text;
 using WpfApp1.modeles;
 
 namespace WpfApp1.wrappers
 {
-    //TODO les champs de types listes et elles ne sont pas dans la bdd
-    internal class WrapChantier
+    internal class WrapDevis
     {
         SqliteConnection sqlite_conn = new SqliteConnection("Data Source=GPB_BDD.bd");
-            
-        public void createChantier(Chantier chantier)
+
+        public void createDevis(Devis devis)
         {
             sqlite_conn.Open();
             SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
-            sqlCommand.CommandText = "INSERT INTO chantier VALUES ('"+chantier._Id+"','"+chantier._Adresse+"','"+chantier._NomChantier+"','"+chantier._Commentaire+"')";
+            sqlCommand.CommandText = "INSERT INTO devis VALUES ('" + devis._Id + "','" + devis._TempsPrevu + "','" + devis._CoutPrevu + "','" + devis._Commentaire + "')";
             Console.WriteLine(sqlCommand.CommandText);
             SqliteDataReader rdr = sqlCommand.ExecuteReader();
-            //sqlCommand.CommandText = "INSERT INTO chantier VALUES ('0','9 rue julien chavoutier', 'maison36', 'il existe pas');";
         }
         // A noter quand on recup les données avec GetInt32() alors que c'est un string la fonction return 0; 
         // et pareil our GetString()
-        public Chantier readChantier(int id)
+        public Devis readDevis(int id)
         {
             sqlite_conn.Open();
             SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
-            sqlCommand.CommandText = "SELECT * FROM chantier WHERE id_chantier="+id;
+            sqlCommand.CommandText = "SELECT * FROM devis WHERE id_devis=" + id;
             SqliteDataReader rdr = sqlCommand.ExecuteReader();
             return convertDataToObject(rdr);
         }
-        public void updateChantier(Chantier chantier)
+        public void updateDevis(Devis devis)
         {
             sqlite_conn.Open();
             SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
             var args = new Dictionary<string, object>
             {
-                {"@id", chantier._Id},
-                {"@adresse", chantier._Adresse },
-                {"@nom", chantier._NomChantier },
-                {"@com", chantier._Commentaire }
+                {"@id", devis._Id},
+                {"@tempsPrevu", devis._TempsPrevu},
+                {"@coutPrevu", devis._CoutPrevu},
+                {"@com", devis._Commentaire }
             };
 
-            sqlCommand.CommandText = "UPDATE chantier SET adresse = @adresse, nom_chantier = @nom, chantier_com = @com WHERE Id = @id";
+            sqlCommand.CommandText = "UPDATE devis SET temps_prevu = @tempsPrevu, cout_prevu = @coutPrevu, devis_com = @com WHERE Id = @id";
             sqlCommand.ExecuteNonQuery();
         }
-        public void deleteChantier(Chantier chantier)
+        public void deleteDevis(Devis devis)
         {
             sqlite_conn.Open();
             SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
-            sqlCommand.CommandText = "DELETE FROM chantier WHERE id_chantier=" + chantier._Id;
+            sqlCommand.CommandText = "DELETE FROM devis WHERE id_devis=" + devis._Id;
             sqlCommand.ExecuteNonQuery();
 
         }
         //je sais que je peux use le constructeur mais je pref comme ca
-        private Chantier convertDataToObject(SqliteDataReader reader)
+        private Devis convertDataToObject(SqliteDataReader reader)
         {
-            var chantier = new Chantier();
-            chantier._Id = reader.GetInt32(0);
-            chantier._Adresse = reader.GetString(1);
-            chantier._NomChantier = reader.GetString(2);
-            chantier._Commentaire = reader.GetString(3);
-            return chantier;
+            var devis = new Devis();
+            devis._Id = reader.GetInt32(0);
+            devis._TempsPrevu = reader.GetInt32(1);
+            devis._CoutPrevu = reader.GetInt32(2);
+            devis._Commentaire = reader.GetString(3);
+            return devis;
         }
-        
+
         private void logChantierfromBDD(SqliteDataReader reader)
         {
             while (reader.Read())
@@ -77,6 +71,6 @@ namespace WpfApp1.wrappers
                 Console.WriteLine($@"{reader.GetInt32(0)} {reader.GetString(1)} {reader.GetString(2)} {reader.GetString(3)}");
             }
         }
-        
+
     }
 }
