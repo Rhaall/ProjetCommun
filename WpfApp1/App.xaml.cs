@@ -20,8 +20,10 @@ namespace WpfApp1
         public App()
         {
             manageBDD  datas = new manageBDD();
-            datas.test();
+            //atas.test();
             WrapChantier test  = new WrapChantier();
+            WrapCompagnon compagnon = new WrapCompagnon();
+            //compagnon.deleteCompagnon(1);
             //Chantier c1 = new Chantier(2, "579 avenue adolphe alphand", "chantier jeffrey", "ontestdestrucs");
             //Chantier c2 = new Chantier(4, "bezier", "chantier florent", "ontestdestrucs");
             //test.createChantier(c1);

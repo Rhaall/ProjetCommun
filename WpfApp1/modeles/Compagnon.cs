@@ -6,7 +6,7 @@ namespace WpfApp1.modèles
     {
         public int _Id { get; set; }
         public string _Name { get; set; }
-        public string _Telephone { get; set; }
+        public int _Telephone { get; set; }
         public int _CoutHoraire { get; set; }
         public string _DateEmbauche { get; set; }
         public string _Commentaire { get; set; }
@@ -19,7 +19,7 @@ namespace WpfApp1.modèles
             return this._Id.ToString() + this._CoutHoraire.ToString();
         }
 
-        public Compagnon(int id, string name, string telephone, int coutHoraire, string dateEmbauche, string commentaire)
+        public Compagnon(int id, string name, int telephone, int coutHoraire, string dateEmbauche, string commentaire)
         {
             _Id = id;
             _Name = name;

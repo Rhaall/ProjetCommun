@@ -24,31 +24,31 @@ namespace WpfApp1.wrapper
         public void test()
         {
             // Specify the directory you want to manipulate.
-            string path = @"C:\ProgramData\GBD";
+            //string path = @"C:\ProgramData\GBD";
 
-            try
-            {
-                // Determine whether the directory exists.
-                if (Directory.Exists(path))
-                {
-                    Console.WriteLine("That path exists already.");
-                    return;
-                }
+            //try
+            //{
+            //    // Determine whether the directory exists.
+            //    if (Directory.Exists(path))
+            //    {
+            //        Console.WriteLine("That path exists already.");
+            //        return;
+            //    }
 
-                // Try to create the directory.
-                DirectoryInfo di = Directory.CreateDirectory(path);
-                Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
+            //    // Try to create the directory.
+            //    DirectoryInfo di = Directory.CreateDirectory(path);
+            //    Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
 
-                // Delete the directory.
-                //di.Delete();
-                Console.WriteLine("The directory was deleted successfully.");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The process failed: {0}", e.ToString());
-            }
+            //    // Delete the directory.
+            //    //di.Delete();
+            //    Console.WriteLine("The directory was deleted successfully.");
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("The process failed: {0}", e.ToString());
+            //}
 
-            SqliteConnection sqlite_conn = new SqliteConnection("Data Source=GPB_BDD.bd");
+            SqliteConnection sqlite_conn = new SqliteConnection(@"Data Source=C:\ProgramData\GBD\GBP_BDD.db");
             sqlite_conn.Open();
             var sqlCommand = sqlite_conn.CreateCommand();
             //sqlCommand.CommandText = "CREATE TABLE chantier ( id_chantier INTEGER NOT NULL, adresse TEXT, nom_chantier TEXT, chantier_com TEXT, PRIMARY KEY(id_chantier AUTOINCREMENT) )";
@@ -56,7 +56,7 @@ namespace WpfApp1.wrapper
             //sqlCommand.CommandText = "CREATE TABLE devis ( id_devis INTEGER NOT NULL, temps_prevu TEXT, cout_prevu NUMERIC, devis_com TEXT, PRIMARY KEY(id_devis AUTOINCREMENT) )";
             //sqlCommand.CommandText = "CREATE TABLE facture ( id_facture INTEGER NOT NULL, temps_effectif TEXT, cout_effectif NUMERIC, facture_com TEXT, PRIMARY KEY(id_facture AUTOINCREMENT) )";
             //sqlCommand.CommandText = "select * from chantier";
-            //sqlCommand.CommandText = "DROP TABLE devis";
+            //sqlCommand.CommandText = "DROP TABLE compagnon";
             //sqlCommand.CommandText = "INSERT INTO chantier VALUES ('0','9 rue julien chavoutier', 'maison36', 'il existe pas');";
 
             var rdr = sqlCommand.ExecuteReader();

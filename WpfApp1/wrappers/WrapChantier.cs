@@ -96,6 +96,7 @@ namespace WpfApp1.wrappers
         private Chantier convertDataToObject(SqliteDataReader reader)
         {
             Chantier chantier = new Chantier();
+
             chantier._Id = reader.GetInt32(0);
             chantier._Adresse = reader.GetString(1);
             chantier._NomChantier = reader.GetString(2);

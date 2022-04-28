@@ -10,7 +10,8 @@ namespace WpfApp1.wrappers
 {
     internal class WrapDevis
     {
-        SqliteConnection sqlite_conn = new SqliteConnection("Data Source=GPB_BDD.bd");
+        SqliteConnection sqlite_conn = new SqliteConnection(@"Data Source=C:\ProgramData\GBD\GBP_BDD.db");
+
 
         public void createDevis(Devis devis)
         {

@@ -11,7 +11,8 @@ namespace WpfApp1.wrappers
     internal class WrapCompagnon
     {
 
-        SqliteConnection sqlite_conn = new SqliteConnection("Data Source=GPB_BDD.bd");
+        SqliteConnection sqlite_conn = new SqliteConnection(@"Data Source=C:\ProgramData\GBD\GBP_BDD.db");
+
 
         public void createCompagnon(Compagnon compagnon)
         {
@@ -48,11 +49,11 @@ namespace WpfApp1.wrappers
             sqlCommand.CommandText = "UPDATE compagnon SET name = @name, telephone = @tel, cout_horaire = @ch , date_embauche = @DE, compagnon_com = @com WHERE Id = @id";
             sqlCommand.ExecuteNonQuery();
         }
-        public void deleteCompagnon(Compagnon compagnon)
+        public void deleteCompagnon(int id)
         {
             sqlite_conn.Open();
             SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
-            sqlCommand.CommandText = "DELETE FROM compagnon WHERE id_compagnon=" + compagnon._Id;
+            sqlCommand.CommandText = "DELETE FROM compagnon WHERE id_compagnon=" + id;
             sqlCommand.ExecuteNonQuery();
 
         }
@@ -78,7 +79,7 @@ namespace WpfApp1.wrappers
             Compagnon compagnon = new Compagnon();
             compagnon._Id = reader.GetInt32(0);
             compagnon._Name = reader.GetString(1);
-            compagnon._Telephone = reader.GetString(2);
+            compagnon._Telephone = reader.GetInt32(2);
             compagnon._CoutHoraire = reader.GetInt32(3);
             compagnon._DateEmbauche = reader.GetString(4);
             compagnon._Commentaire = reader.GetString(5);
