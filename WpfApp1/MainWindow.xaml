@@ -5,23 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,0,567,0">
+        Title="MainWindow" Height="547.5" Width="1100.15">
+    <Grid Margin="0,0,685,0">
+        <TabControl x:Name="tabControl" Height="507" TabStripPlacement="Left" VerticalAlignment="Top" Margin="0,0,-678,0" HorizontalAlignment="Right" Width="1075">
+            <TabItem x:Name="OUI" Header="Chantier" >
+                <Grid Margin="0,0,-650,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="127*"/>
+                        <ColumnDefinition Width="1534*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Name="datagridjeff" CanUserSortColumns="True" 
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False" 
+                      AutoGenerateColumns="True"
+                      SelectionMode="Single" Margin="19,96,659,10" SelectionChanged="datagridjeff_SelectionChanged" Grid.ColumnSpan="2">
+                    </DataGrid>
 
+                    <ToggleButton x:Name="TogglePopupButton" Height="30" Width="150" HorizontalAlignment="Left" Background="LightGreen" Grid.Column="1" Margin="724,27,0,444">
+                        <StackPanel>
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Run Text="Crée un nouveau chantier" />
+            <Run Text="{Binding IsChecked, ElementName=TogglePopupButton}" />
+                            </TextBlock>
 
+                            <Popup Name="myPopup" IsOpen="{Binding IsChecked, ElementName=TogglePopupButton}"             Placement="Center"
+            PlacementTarget="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+            PopupAnimation="Slide">
 
-        <Menu HorizontalAlignment="Left" Width="185" Margin="0,21,0,0"/>
-        <Button Content="Dashboard" HorizontalAlignment="Left" Margin="19,36,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Chantier" HorizontalAlignment="Left" Margin="19,70,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
-        <Button Content="Compagnon" HorizontalAlignment="Left" Margin="19,145,0,0" VerticalAlignment="Top"/>
-        <Button Content="Devis" HorizontalAlignment="Left" Margin="19,106,0,0" VerticalAlignment="Top"/>
-        <Button Content="Facture" HorizontalAlignment="Left" Margin="19,189,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="438,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Width="142"/>
-        <DataGrid Name="datagridjeff" CanUserSortColumns="True" 
-          CanUserAddRows="False"
-          CanUserDeleteRows="False" 
-          AutoGenerateColumns="True"
-          SelectionMode="Single" Margin="264,124,-549,12" SelectionChanged="datagridjeff_SelectionChanged">
-        </DataGrid>
+                                <Border BorderThickness="1">
+                                    <TextBlock Name="myPopupText" Background="LightBlue" Foreground="Blue" Padding="30" Width="507" Height="219">
+                Popup Text
+                                    </TextBlock>
+                                </Border>
+                            </Popup>
+                        </StackPanel>
+                    </ToggleButton>
+
+                    <RichTextBox HorizontalAlignment="Left" Height="23" Margin="39,24,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <RichTextBox HorizontalAlignment="Left" Height="23" Margin="26.5,62,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <RichTextBox HorizontalAlignment="Left" Height="23" Margin="173.5,66,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <RichTextBox HorizontalAlignment="Left" Height="23" Margin="39,65,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2">
+                        <FlowDocument>
+                            <Paragraph>
+                                <Run Text="RichTextBox"/>
+                            </Paragraph>
+                        </FlowDocument>
+                    </RichTextBox>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="39,0,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="26.5,36,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="39,43,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Label" HorizontalAlignment="Left" Margin="173.5,43,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button Content="Rechercher" HorizontalAlignment="Left" Margin="294.5,65,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Margin="0,0,-650,0">
+                    
+                    <DataGrid Name="datagridjefaf" CanUserSortColumns="True" 
+                      CanUserAddRows="False"
+                      CanUserDeleteRows="False" 
+                      AutoGenerateColumns="True"
+                      SelectionMode="Single" Margin="131,96,-416,40" SelectionChanged="datagridjeff_SelectionChanged">
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
