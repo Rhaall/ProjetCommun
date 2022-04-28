@@ -11,7 +11,7 @@ namespace WpfApp1.wrappers
     //TODO les champs de types listes et elles ne sont pas dans la bdd
     internal class WrapChantier
     {
-        SqliteConnection sqlite_conn = new SqliteConnection("Data Source=GPB_BDD.bd");
+        SqliteConnection sqlite_conn = new SqliteConnection(@"Data Source=C:\ProgramData\GBD\GBP_BDD.db");
 
         public WrapChantier()
         {
@@ -21,9 +21,9 @@ namespace WpfApp1.wrappers
         {
             sqlite_conn.Open();
             SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
-            sqlCommand.CommandText = "INSERT INTO chantier VALUES ('"+chantier._Id+"','"+chantier._Adresse+"','"+chantier._NomChantier+"','"+chantier._Commentaire+"')";
+            sqlCommand.CommandText = "INSERT INTO chantier (adresse,nom_chantier,chantier_com) VALUES ('"+chantier._Adresse+"','"+chantier._NomChantier+"','"+chantier._Commentaire+"')";
             Console.WriteLine(sqlCommand.CommandText);
-            SqliteDataReader rdr = sqlCommand.ExecuteReader();
+            sqlCommand.ExecuteNonQuery();
             //sqlCommand.CommandText = "INSERT INTO chantier VALUES ('0','9 rue julien chavoutier', 'maison36', 'il existe pas');";
         }
         // A noter quand on recup les données avec GetInt32() alors que c'est un string la fonction return 0; 
@@ -88,9 +88,7 @@ namespace WpfApp1.wrappers
             {
                 Chantier ch = convertDataToObject(reader);
                 ch.jToString();
-                Console.WriteLine(ch.jToString());
                 listChantier.Add(ch);    
-                Console.WriteLine($@"{reader.GetInt32(0)} {reader.GetString(1)} {reader.GetString(2)} {reader.GetString(3)}");
             }
             return listChantier;
         }

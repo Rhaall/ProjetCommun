@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using WpfApp1.modeles;
+using WpfApp1.modèles;
 using WpfApp1.wrapper;
 using WpfApp1.wrappers;
 
@@ -21,14 +22,17 @@ namespace WpfApp1
             manageBDD  datas = new manageBDD();
             datas.test();
             WrapChantier test  = new WrapChantier();
-            Chantier c1 = new Chantier(2,"579 avenue adolphe alphand","chantier jeffrey","ontestdestrucs");
-            Chantier c2 = new Chantier(3,"bezier","chantier florent","ontestdestrucs");
+            //Chantier c1 = new Chantier(2, "579 avenue adolphe alphand", "chantier jeffrey", "ontestdestrucs");
+            //Chantier c2 = new Chantier(4, "bezier", "chantier florent", "ontestdestrucs");
             //test.createChantier(c1);
             //test.createChantier(c1);
-            //test.readChantier(2);
-            //test.updateChantier(c1);
-            test.getAllChantier();
-            
+            //test.createChantier(c2);
+            //test.getAllChantier();
+            //Facture f = new Facture(0, 156, 35000, "cest pas cher");
+            //Facture f2 = new Facture(1, 15, 3500, "cest  cher");
+            //WrapFacture wrapFacture = new WrapFacture();
+            //wrapFacture.createFacture(f);
+
         }
     }
 }

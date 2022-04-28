@@ -10,15 +10,17 @@ namespace WpfApp1.wrappers
 {
     internal class WrapFacture
     {
-        SqliteConnection sqlite_conn = new SqliteConnection("Data Source=GPB_BDD.bd");
+        SqliteConnection sqlite_conn = new SqliteConnection(@"Data Source=C:\ProgramData\GBD\GBP_BDD.db");
+
 
         public void createFacture(Facture facture)
         {
             sqlite_conn.Open();
             SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
-            sqlCommand.CommandText = "INSERT INTO facture VALUES ('" + facture._Id + "','" + facture._TempsEffectif+ "','" + facture._CoutEffectif + "','" + facture._Commentaire + "')";
+            sqlCommand.CommandText = @"INSERT INTO facture (temps_effectif,cout_effectif,facture_com) VALUES ('" + facture._TempsEffectif+ "','" + facture._CoutEffectif + "','" + facture._Commentaire + "')";
             Console.WriteLine(sqlCommand.CommandText);
-            SqliteDataReader rdr = sqlCommand.ExecuteReader();
+            sqlCommand.ExecuteNonQuery();
+
         }
         // A noter quand on recup les données avec GetInt32() alors que c'est un string la fonction return 0; 
         // et pareil our GetString()
@@ -63,7 +65,20 @@ namespace WpfApp1.wrappers
             facture._Commentaire = reader.GetString(3);
             return facture;
         }
-
+        public List<Facture> getAllFacture()
+        {
+            List<Facture> listFacture = new List<Facture>();
+            sqlite_conn.Open();
+            SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
+            sqlCommand.CommandText = "SELECT * FROM facture";
+            SqliteDataReader reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                Facture fac = convertDataToObject(reader);
+                listFacture.Add(fac);
+            }
+            return listFacture;
+        }
         private void logFacturefromBDD(SqliteDataReader reader)
         {
             while (reader.Read())

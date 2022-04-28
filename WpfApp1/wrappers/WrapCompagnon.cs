@@ -56,6 +56,22 @@ namespace WpfApp1.wrappers
             sqlCommand.ExecuteNonQuery();
 
         }
+        public List<Compagnon> getAllCompagnon()
+        {
+            List<Compagnon> listCompagnon = new List<Compagnon>();
+            sqlite_conn.Open();
+            SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
+            sqlCommand.CommandText = "SELECT * FROM compagnon";
+            SqliteDataReader reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                Compagnon dev = convertDataToObject(reader);
+                Console.WriteLine("coucou");
+                Console.WriteLine("compagnon :"+dev.jToString());
+                listCompagnon.Add(dev);
+            }
+            return listCompagnon;
+        }
         //je sais que je peux use le constructeur mais je pref comme ca
         private Compagnon convertDataToObject(SqliteDataReader reader)
         {

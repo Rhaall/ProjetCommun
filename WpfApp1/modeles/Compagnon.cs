@@ -14,6 +14,10 @@ namespace WpfApp1.modèles
         public Compagnon()
         {
         }
+        public string jToString()
+        {
+            return this._Id.ToString() + this._CoutHoraire.ToString();
+        }
 
         public Compagnon(int id, string name, string telephone, int coutHoraire, string dateEmbauche, string commentaire)
         {

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp1.modeles;
+using WpfApp1.modèles;
 using WpfApp1.tests;
 using WpfApp1.wrappers;
 
@@ -25,6 +26,9 @@ namespace WpfApp1
     {
         List<Chantier> chants = new List<Chantier>();
         List<person> people = new List<person>();
+        List<Facture> factures = new List<Facture>();
+        List<Devis> devis = new List<Devis>();
+        List<Compagnon> compagnons = new List<Compagnon>();
         public MainWindow()
         {
             
@@ -32,7 +36,16 @@ namespace WpfApp1
             WrapChantier WC = new WrapChantier();
             chants = WC.getAllChantier();
             //people = GetPeople();
-            datagridjeff.ItemsSource = chants;
+            WrapFacture WCF = new WrapFacture();
+            factures = WCF.getAllFacture();
+            dataChantier.ItemsSource = chants;
+            datafacture.ItemsSource = factures;
+            WrapDevis WDD  = new WrapDevis();
+            devis = WDD.getAllDevis();
+            datadevis.ItemsSource = devis;
+            WrapCompagnon wrapCompagnon = new WrapCompagnon();
+            compagnons = wrapCompagnon.getAllCompagnon();
+            dataCompagnon.ItemsSource = compagnons;
 
         }
 
@@ -62,6 +75,16 @@ namespace WpfApp1
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RichTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void RichTextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 
         }

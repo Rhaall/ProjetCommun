@@ -63,7 +63,21 @@ namespace WpfApp1.wrappers
             devis._Commentaire = reader.GetString(3);
             return devis;
         }
+        public List<Devis> getAllDevis()
+        {
+            List<Devis> listDevis = new List<Devis>();
+            sqlite_conn.Open();
+            SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
+            sqlCommand.CommandText = "SELECT * FROM devis";
+            SqliteDataReader reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                Devis dev = convertDataToObject(reader);
 
+                listDevis.Add(dev);
+            }
+            return listDevis;
+        }
         private void logDevisfromBDD(SqliteDataReader reader)
         {
             while (reader.Read())
