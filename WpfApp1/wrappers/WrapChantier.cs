@@ -4,10 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
-using System.Collections.Generic;
-using System;
-using System.Linq;
-using System.Text;
 using WpfApp1.modeles;
 
 namespace WpfApp1.wrappers
@@ -16,7 +12,11 @@ namespace WpfApp1.wrappers
     internal class WrapChantier
     {
         SqliteConnection sqlite_conn = new SqliteConnection("Data Source=GPB_BDD.bd");
-            
+
+        public WrapChantier()
+        {
+        }
+
         public void createChantier(Chantier chantier)
         {
             sqlite_conn.Open();
@@ -59,10 +59,45 @@ namespace WpfApp1.wrappers
             sqlCommand.ExecuteNonQuery();
 
         }
-        //je sais que je peux use le constructeur mais je pref comme ca
+       public List<Chantier> searchChantierByName(string name)
+       {
+            sqlite_conn.Open();
+            SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
+            sqlCommand.CommandText = "SELECT * FROM chantier WHERE nom_chantier=" + name;
+            List<Chantier> listChantier = new List<Chantier>();
+            SqliteDataReader reader = sqlCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Chantier ch = convertDataToObject(reader);
+                ch.jToString();
+                listChantier.Add(ch);
+                Console.WriteLine($@"{reader.GetInt32(0)} {reader.GetString(1)} {reader.GetString(2)} {reader.GetString(3)}");
+            }
+            return listChantier;
+       }
+
+        public List<Chantier> getAllChantier()
+        {
+            List<Chantier> listChantier = new List<Chantier>();
+            sqlite_conn.Open();
+            SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
+            sqlCommand.CommandText = "SELECT * FROM chantier";
+            SqliteDataReader reader = sqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                Chantier ch = convertDataToObject(reader);
+                ch.jToString();
+                Console.WriteLine(ch.jToString());
+                listChantier.Add(ch);    
+                Console.WriteLine($@"{reader.GetInt32(0)} {reader.GetString(1)} {reader.GetString(2)} {reader.GetString(3)}");
+            }
+            return listChantier;
+        }
+        //je sais que j&e peux use le constructeur mais je pref comme ca
         private Chantier convertDataToObject(SqliteDataReader reader)
         {
-            var chantier = new Chantier();
+            Chantier chantier = new Chantier();
             chantier._Id = reader.GetInt32(0);
             chantier._Adresse = reader.GetString(1);
             chantier._NomChantier = reader.GetString(2);
@@ -70,7 +105,7 @@ namespace WpfApp1.wrappers
             return chantier;
         }
         
-        private void logChantierfromBDD(SqliteDataReader reader)
+        private void logChantierfromReader(SqliteDataReader reader)
         {
             while (reader.Read())
             {

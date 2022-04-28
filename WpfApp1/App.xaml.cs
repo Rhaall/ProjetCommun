@@ -27,6 +27,7 @@ namespace WpfApp1
             //test.createChantier(c1);
             //test.readChantier(2);
             //test.updateChantier(c1);
+            test.getAllChantier();
             
         }
     }

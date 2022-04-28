@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.modeles;
+using WpfApp1.tests;
+using WpfApp1.wrappers;
 
 namespace WpfApp1
 {
@@ -20,21 +23,42 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Chantier> chants = new List<Chantier>();
+        List<person> people = new List<person>();
         public MainWindow()
         {
+            
             InitializeComponent();
+            WrapChantier WC = new WrapChantier();
+            chants = WC.getAllChantier();
+            //people = GetPeople();
+            datagridjeff.ItemsSource = chants;
+
         }
 
-        
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private List<person> GetPeople()
         {
-
+            
+            List<person> people = new List<person>();
+            people.Add(new person() { PersonId=1 ,Name="jeffrey",Surname="fevre",Profession="dev" });
+            people.Add(new person() { PersonId=2 ,Name="flo",Surname="chav",Profession="dev" });
+            people.Add(new person() { PersonId=3 ,Name="arnal",Surname="florez",Profession="dev" });
+            return people;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("coucou");
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void datagridjeff_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

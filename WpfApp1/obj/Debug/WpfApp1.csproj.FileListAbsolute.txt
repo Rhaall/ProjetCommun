@@ -37,3 +37,5 @@ C:\Users\jeff0\OneDrive\Documents\git\ProjetCommun\WpfApp1\obj\Debug\1.exe
 C:\Users\jeff0\OneDrive\Documents\git\ProjetCommun\WpfApp1\obj\Debug\1.pdb
 C:\Users\jeff0\OneDrive\Documents\git\ProjetCommun\WpfApp1\bin\Debug\SQLitePCLRaw.nativelibrary.dll
 C:\Users\jeff0\OneDrive\Documents\git\ProjetCommun\WpfApp1\bin\Debug\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\jeff0\OneDrive\Documents\git\ProjetCommun\WpfApp1\bin\Debug\PostSharp.dll
+C:\Users\jeff0\OneDrive\Documents\git\ProjetCommun\WpfApp1\bin\Debug\PostSharp.xml

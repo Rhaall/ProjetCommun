@@ -59,7 +59,7 @@ namespace WpfApp1.wrappers
         //je sais que je peux use le constructeur mais je pref comme ca
         private Compagnon convertDataToObject(SqliteDataReader reader)
         {
-            var compagnon = new Compagnon();
+            Compagnon compagnon = new Compagnon();
             compagnon._Id = reader.GetInt32(0);
             compagnon._Name = reader.GetString(1);
             compagnon._Telephone = reader.GetString(2);
@@ -69,7 +69,7 @@ namespace WpfApp1.wrappers
             return compagnon;
         }
 
-        private void logChantierfromBDD(SqliteDataReader reader)
+        private void logCompagnonfromBDD(SqliteDataReader reader)
         {
             while (reader.Read())
             {

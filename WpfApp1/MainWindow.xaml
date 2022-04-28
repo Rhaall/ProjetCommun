@@ -12,12 +12,16 @@
 
         <Menu HorizontalAlignment="Left" Width="185" Margin="0,21,0,0"/>
         <Button Content="Dashboard" HorizontalAlignment="Left" Margin="19,36,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Chantier" HorizontalAlignment="Left" Margin="19,70,0,0" VerticalAlignment="Top"/>
+        <Button Content="Chantier" HorizontalAlignment="Left" Margin="19,70,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
         <Button Content="Compagnon" HorizontalAlignment="Left" Margin="19,145,0,0" VerticalAlignment="Top"/>
         <Button Content="Devis" HorizontalAlignment="Left" Margin="19,106,0,0" VerticalAlignment="Top"/>
         <Button Content="Facture" HorizontalAlignment="Left" Margin="19,189,0,0" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="366,126,0,0" VerticalAlignment="Top" Width="100"/>
         <TextBlock HorizontalAlignment="Left" Margin="438,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Width="142"/>
-
+        <DataGrid Name="datagridjeff" CanUserSortColumns="True" 
+          CanUserAddRows="False"
+          CanUserDeleteRows="False" 
+          AutoGenerateColumns="True"
+          SelectionMode="Single" Margin="264,124,-549,12" SelectionChanged="datagridjeff_SelectionChanged">
+        </DataGrid>
     </Grid>
 </Window>

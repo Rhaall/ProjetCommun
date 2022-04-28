@@ -2,10 +2,10 @@
 {
     class Facture
     {
-        public int _Id;
-        public int _TempsEffectif;
-        public int _CoutEffectif;
-        public string _Commentaire;
+        public int _Id { get; set; }
+        public int _TempsEffectif { get; set; }
+        public int _CoutEffectif { get; set; }
+        public string _Commentaire { get; set; }
 
         public Facture()
         {

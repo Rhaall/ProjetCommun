@@ -2,10 +2,10 @@
 {
     class Devis
     {
-        public int _Id;
-        public int _TempsPrevu;
-        public int _CoutPrevu;
-        public string _Commentaire;
+        public int _Id { get; set; }
+        public int _TempsPrevu { get; set; }
+        public int _CoutPrevu { get; set; }
+        public string _Commentaire { get; set; }
 
         public Devis()
         {

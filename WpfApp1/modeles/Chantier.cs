@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -6,16 +7,19 @@ using WpfApp1.modèles;
 
 
 namespace WpfApp1.modeles
-{
+{   
     class Chantier
     {
-        public int _Id;
-        public string _Adresse;
-        public string _NomChantier;
-        public string _Commentaire;
-        public Devis[] _devis;
-        public Facture[] _factures;
-
+        public int _Id { get; set; }
+        public string _Adresse { get; set; }
+        public string _NomChantier { get; set; }
+        public string _Commentaire { get; set; }
+        public Devis[] _devis { get; set; }
+        public Facture[] _factures { get; set; }
+        public string jToString()
+        {
+            return "id : " + this._Id.ToString() + ", adresse : " + this._Adresse + ", nom chantier : " + this._NomChantier + ", commentaire :" + this._Commentaire;
+        }
         public Chantier(int id, string adresse, string nomChantier, string commentaire, Devis[] devis, Facture[] factures)
         {
             _Id = id;
@@ -31,11 +35,14 @@ namespace WpfApp1.modeles
             _Adresse = adresse;
             _NomChantier = nomChantier;
             this._Commentaire = commentaire;
-         
+
         }
 
         public Chantier()
         {
         }
+
+        
+
     }
 }

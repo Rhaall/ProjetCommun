@@ -56,7 +56,7 @@ namespace WpfApp1.wrappers
         //je sais que je peux use le constructeur mais je pref comme ca
         private Facture convertDataToObject(SqliteDataReader reader)
         {
-            var facture= new Facture();
+            Facture facture= new Facture();
             facture._Id = reader.GetInt32(0);
             facture._TempsEffectif = reader.GetInt32(1);
             facture._CoutEffectif= reader.GetInt32(2);

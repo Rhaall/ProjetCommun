@@ -64,7 +64,7 @@ namespace WpfApp1.wrappers
             return devis;
         }
 
-        private void logChantierfromBDD(SqliteDataReader reader)
+        private void logDevisfromBDD(SqliteDataReader reader)
         {
             while (reader.Read())
             {

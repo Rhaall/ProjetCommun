@@ -56,6 +56,9 @@
     <Reference Include="Microsoft.Data.Sqlite, Version=6.0.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.Sqlite.Core.6.0.4\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
     </Reference>
+    <Reference Include="PostSharp, Version=6.6.6.0, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <HintPath>..\packages\PostSharp.Redist.6.6.6\lib\net45\PostSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.0.7.1395, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.2.0.7\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
@@ -107,7 +110,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="modeles\ListChantier.cs" />
+    <Compile Include="tests\person.cs" />
     <Compile Include="wrappers\WrapChantier.cs" />
     <Compile Include="wrappers\manageBDD.cs" />
     <Compile Include="wrappers\WrapCompagnon.cs" />
@@ -172,6 +175,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bdd\" />
+    <Folder Include="views\chantiers\" />
+    <Folder Include="views\compagnons\" />
+    <Folder Include="views\factures\" />
+    <Folder Include="views\xdevis\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
