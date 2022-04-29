@@ -119,6 +119,33 @@ namespace WpfApp1.wrappers
             }
             return listFacture;
         }
+        public List<Facture> searchFacturesMultiParam(Dictionary<string, string> dic)
+        {
+            sqlite_conn.Open();
+            SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
+            string Query = "SELECT * FROM facture WHERE ";
+            //sqlCommand.CommandText = "SELECT * FROM chantier WHERE nom_chantier=" + name;
+            foreach (KeyValuePair<string, string> param in dic)
+            {
+                if (param.Value != "")
+                {
+                    string where = param.Key + "==\'" + param.Value + "\'";
+                    Query += where + " && ";
+                }
+            }
+            Query = Query.Substring(0, Query.Length - 3);
+            sqlCommand.CommandText = Query;
+            Console.WriteLine(Query);
+            List<Facture> listFacture = new List<Facture>();
+            SqliteDataReader reader = sqlCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Facture ch = convertDataToObject(reader);
+                listFacture.Add(ch);
+            }
+            return listFacture;
+        }
         private void logFacturefromBDD(SqliteDataReader reader)
         {
             while (reader.Read())

@@ -63,14 +63,17 @@ namespace WpfApp1.wrappers
         {
             sqlite_conn.Open();
             SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
-            string Query = "SELECT * FROM chantier WHERE";
+            string Query = "SELECT * FROM chantier WHERE ";
             //sqlCommand.CommandText = "SELECT * FROM chantier WHERE nom_chantier=" + name;
             foreach (KeyValuePair<string, string> param in dic)
             {
-                string where = param.Key + "=" + param.Value;
-                Query += where;
+                if (param.Value != "")
+                {
+                    string where = param.Key + "==\'" + param.Value+"\'";
+                    Query += where + " && ";
+                }
             }
-
+            Query = Query.Substring(0, Query.Length - 3);
             sqlCommand.CommandText = Query;
             Console.WriteLine(Query);
             List<Chantier> listChantier = new List<Chantier>();

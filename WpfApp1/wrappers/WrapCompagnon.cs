@@ -73,6 +73,33 @@ namespace WpfApp1.wrappers
             }
             return listCompagnon;
         }
+        public List<Compagnon> searchCompagnonsMultiParam(Dictionary<string, string> dic)
+        {
+            sqlite_conn.Open();
+            SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
+            string Query = "SELECT * FROM compagnon WHERE ";
+            //sqlCommand.CommandText = "SELECT * FROM chantier WHERE nom_chantier=" + name;
+            foreach (KeyValuePair<string, string> param in dic)
+            {
+                if (param.Value != "")
+                {
+                    string where = param.Key + "==\'" + param.Value + "\'";
+                    Query += where + " && ";
+                }
+            }
+            Query = Query.Substring(0, Query.Length - 3);
+            sqlCommand.CommandText = Query;
+            Console.WriteLine(Query);
+            List<Compagnon> listCompanons = new List<Compagnon>();
+            SqliteDataReader reader = sqlCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Compagnon ch = convertDataToObject(reader);
+                listCompanons.Add(ch);
+            }
+            return listCompanons;
+        }
         //je sais que je peux use le constructeur mais je pref comme ca
         private Compagnon convertDataToObject(SqliteDataReader reader)
         {
