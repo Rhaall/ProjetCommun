@@ -41,31 +41,31 @@
                         </StackPanel>
                     </ToggleButton>
 
-                    <RichTextBox HorizontalAlignment="Left" Height="23" Margin="39,24,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2">
+                    <RichTextBox  HorizontalAlignment="Left" Height="23" Margin="39,24,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2">
                         <FlowDocument>
                             <Paragraph>
-                                <Run Text=""/>
+                                <Run Name="id_chantier" Text="jeffrey"/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
                     <RichTextBox HorizontalAlignment="Left" Height="23" Margin="35,65,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" TextChanged="RichTextBox_TextChanged_1">
                         <FlowDocument>
                             <Paragraph>
-                                <Run Text=""/>
+                                <Run Name="adresse_chantier" Text=""/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
                     <RichTextBox HorizontalAlignment="Left" Height="23" Margin="173,65,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
                         <FlowDocument>
                             <Paragraph>
-                                <Run Text=""/>
+                                <Run Name="chantier_com" Text=""/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
-                    <RichTextBox HorizontalAlignment="Left" Height="23" Margin="39,65,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" TextChanged="RichTextBox_TextChanged">
+                    <RichTextBox  HorizontalAlignment="Left" Height="23" Margin="39,65,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" TextChanged="RichTextBox_TextChanged">
                         <FlowDocument>
                             <Paragraph>
-                                <Run Text=""/>
+                                <Run Name="nom_chantier" Text=""/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
@@ -73,7 +73,7 @@
                     <Label Content="Adresse" HorizontalAlignment="Left" Margin="35,42,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                     <Label Content="NomChantier" HorizontalAlignment="Left" Margin="39,43,0,0" VerticalAlignment="Top"/>
                     <Label Content="Commentaire " HorizontalAlignment="Left" Margin="173.5,43,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Button Content="Rechercher" HorizontalAlignment="Left" Margin="294.5,65,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+                    <Button Name="searchChantier" Click="searchChantier_Click" Content="RechercherChantier" HorizontalAlignment="Left" Margin="295,65,0,0" VerticalAlignment="Top" Width="157" Grid.Column="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Facture">
@@ -264,7 +264,7 @@
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
-                    
+
                 </Grid>
             </TabItem>
         </TabControl>

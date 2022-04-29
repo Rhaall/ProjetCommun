@@ -59,7 +59,31 @@ namespace WpfApp1.wrappers
             sqlCommand.ExecuteNonQuery();
 
         }
-       public List<Chantier> searchChantierByName(string name)
+        public List<Chantier> searchChantierMultiParam(Dictionary<string, string> dic)
+        {
+            sqlite_conn.Open();
+            SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
+            string Query = "SELECT * FROM chantier WHERE";
+            //sqlCommand.CommandText = "SELECT * FROM chantier WHERE nom_chantier=" + name;
+            foreach (KeyValuePair<string, string> param in dic)
+            {
+                string where = param.Key + "=" + param.Value;
+                Query += where;
+            }
+
+            sqlCommand.CommandText = Query;
+            Console.WriteLine(Query);
+            List<Chantier> listChantier = new List<Chantier>();
+            SqliteDataReader reader = sqlCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Chantier ch = convertDataToObject(reader);
+                listChantier.Add(ch);
+            }
+            return listChantier;
+        }
+        public List<Chantier> searchChantierByName(string name)
        {
             sqlite_conn.Open();
             SqliteCommand sqlCommand = sqlite_conn.CreateCommand();

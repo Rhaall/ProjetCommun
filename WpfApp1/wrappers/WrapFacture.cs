@@ -32,6 +32,46 @@ namespace WpfApp1.wrappers
             SqliteDataReader rdr = sqlCommand.ExecuteReader();
             return convertDataToObject(rdr);
         }
+        public List<Facture> searchChantierByName(string name)
+        {
+            sqlite_conn.Open();
+            SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
+            sqlCommand.CommandText = "SELECT * FROM chantier WHERE nom_chantier=" + name;
+            List<Facture> listFacture = new List<Facture>();
+            SqliteDataReader reader = sqlCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Facture fac = convertDataToObject(reader);
+                listFacture.Add(fac);
+            }
+            return listFacture;
+        }
+    
+       //les chants du dictionnaires sont celui de la des champs de la bdd
+        public List<Facture> searchChantierMultiParam(Dictionary<string, string> dic)
+        {
+            sqlite_conn.Open();
+            SqliteCommand sqlCommand = sqlite_conn.CreateCommand();
+            string Query = "SELECT * FROM chantier WHERE";
+            //sqlCommand.CommandText = "SELECT * FROM chantier WHERE nom_chantier=" + name;
+            foreach (KeyValuePair<string, string> param in dic)
+            { 
+                string where = param.Key+"="+param.Value;
+                Query += where;
+            }
+
+            sqlCommand.CommandText = Query;
+            List<Facture> listFacture = new List<Facture>();
+            SqliteDataReader reader = sqlCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Facture fac = convertDataToObject(reader);
+                listFacture.Add(fac);
+            }
+            return listFacture;
+        }
         public void updateFacture(Facture facture)
         {
             sqlite_conn.Open();
