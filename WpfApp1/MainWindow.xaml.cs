@@ -16,6 +16,7 @@ using WpfApp1.modeles;
 using WpfApp1.modèles;
 using WpfApp1.tests;
 using WpfApp1.wrappers;
+using WpfApp1.wrapper;
 
 namespace WpfApp1
 {
@@ -31,8 +32,9 @@ namespace WpfApp1
         List<Compagnon> compagnons = new List<Compagnon>();
         public MainWindow()
         {
-            
             InitializeComponent();
+            manageBDD bddManager = new manageBDD();
+            bddManager.test();
             WrapChantier WC = new WrapChantier();
             chants = WC.getAllChantier();
             //people = GetPeople();

@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="547.5" Width="1100.15">
     <Grid Margin="0,0,685,0">
-        <TabControl x:Name="tabControl" Height="507" TabStripPlacement="Left" VerticalAlignment="Top" Margin="0,0,-678,0" HorizontalAlignment="Right" Width="1075">
+        <TabControl x:Name="tabControl" TabStripPlacement="Left" Margin="10,0,-678,10">
             <TabItem x:Name="OUI" Header="Chantier" >
-                <Grid Margin="0,0,-650,0">
+                <Grid Margin="0,0,-6,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="127*"/>
                         <ColumnDefinition Width="1534*"/>
@@ -18,7 +18,7 @@
                       CanUserAddRows="False"
                       CanUserDeleteRows="False" 
                       AutoGenerateColumns="True"
-                      SelectionMode="Single" Margin="19,96,659,10" SelectionChanged="datagridjeff_SelectionChanged" Grid.ColumnSpan="2">
+                      SelectionMode="Single" Margin="19,96,45,10" SelectionChanged="datagridjeff_SelectionChanged" Grid.ColumnSpan="2">
                     </DataGrid>
 
                     <ToggleButton x:Name="ToggleChantier" Height="30" Width="186" HorizontalAlignment="Left" Background="LightGreen" Grid.Column="1" Margin="688,27,0,444">
@@ -41,14 +41,14 @@
                         </StackPanel>
                     </ToggleButton>
 
-                    <RichTextBox  HorizontalAlignment="Left" Height="23" Margin="39,24,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2">
+                    <RichTextBox x:Name="___Aucun_nom_"  HorizontalAlignment="Left" Height="23" Margin="39,24,0,0" VerticalAlignment="Top" Width="100" Grid.ColumnSpan="2" AutomationProperties.IsRowHeader="True">
                         <FlowDocument>
                             <Paragraph>
-                                <Run Name="id_chantier" Text="jeffrey"/>
+                                <Run x:Name="id_chantier" Text="jeffrey"/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
-                    <RichTextBox HorizontalAlignment="Left" Height="23" Margin="35,65,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" TextChanged="RichTextBox_TextChanged_1">
+                    <RichTextBox HorizontalAlignment="Left" Height="23" Margin="68,65,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1" TextChanged="RichTextBox_TextChanged_1">
                         <FlowDocument>
                             <Paragraph>
                                 <Run Name="adresse_chantier" Text=""/>
@@ -69,11 +69,11 @@
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>
-                    <Label Content="Id" HorizontalAlignment="Left" Margin="39,0,0,0" VerticalAlignment="Top"/>
-                    <Label Content="Adresse" HorizontalAlignment="Left" Margin="35,42,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="Id" HorizontalAlignment="Left" Margin="39,-2,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Adresse" HorizontalAlignment="Left" Margin="68,39,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                     <Label Content="NomChantier" HorizontalAlignment="Left" Margin="39,43,0,0" VerticalAlignment="Top"/>
                     <Label Content="Commentaire " HorizontalAlignment="Left" Margin="173.5,43,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-                    <Button Name="searchChantier" Click="searchChantier_Click" Content="RechercherChantier" HorizontalAlignment="Left" Margin="295,65,0,0" VerticalAlignment="Top" Width="157" Grid.Column="1"/>
+                    <Button Name="searchChantier" Click="searchChantier_Click" Content="Rechercher Chantier" HorizontalAlignment="Left" Margin="295,65,0,0" VerticalAlignment="Top" Width="157" Grid.Column="1"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Facture">
@@ -244,7 +244,7 @@
                         </FlowDocument>
                     </RichTextBox>
                     <Label Content="Id" HorizontalAlignment="Left" Margin="39,0,0,0" VerticalAlignment="Top"/>
-                    <Button Content="Rechercher" HorizontalAlignment="Left" Margin="699,62,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="Search" Content="Rechercher" HorizontalAlignment="Left" Margin="699,62,0,0" VerticalAlignment="Top" Width="75"/>
                     <Label Content="Nom" HorizontalAlignment="Left" Margin="162,42,0,0" VerticalAlignment="Top"/>
                     <Label Content="Téléphone" HorizontalAlignment="Left" Margin="39,43,0,0" VerticalAlignment="Top"/>
                     <Label Content="Cout horaire " HorizontalAlignment="Left" Margin="300,43,0,0" VerticalAlignment="Top"/>
