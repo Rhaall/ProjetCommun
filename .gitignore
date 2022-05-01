@@ -149,7 +149,7 @@ csx/
 AppPackages/
 
 # Others
-.vs
+.vs/
 sql/
 *.Cache
 *.cache
