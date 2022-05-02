@@ -116,8 +116,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BuildWindow.xaml.cs">
-      <DependentUpon>BuildWindow.xaml</DependentUpon>
+    <Compile Include="ChantierWindow.xaml.cs">
+      <DependentUpon>ChantierWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CompagnonWindow.xaml.cs">
+      <DependentUpon>CompagnonWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="controllers\CompagnonController.cs" />
     <Compile Include="controllers\FacturesController.cs" />
@@ -129,7 +132,11 @@
     <Compile Include="wrappers\WrapCompagnon.cs" />
     <Compile Include="wrappers\WrapDevis.cs" />
     <Compile Include="wrappers\WrapFacture.cs" />
-    <Page Include="BuildWindow.xaml">
+    <Page Include="ChantierWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CompagnonWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
