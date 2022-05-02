@@ -14,6 +14,8 @@ namespace WpfApp1.modeles
         public string _Adresse { get; set; }
         public string _NomChantier { get; set; }
         public string _Commentaire { get; set; }
+        public int _CodePostal { get; set; }
+
         public Devis[] _devis { get; set; }
         public Facture[] _factures { get; set; }
         public string jToString()

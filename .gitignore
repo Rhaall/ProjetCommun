@@ -149,8 +149,10 @@ csx/
 AppPackages/
 
 # Others
+.vs/
 sql/
 *.Cache
+*.cache
 ClientBin/
 [Ss]tyle[Cc]op.*
 ~$*
