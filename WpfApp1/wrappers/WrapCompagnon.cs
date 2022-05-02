@@ -83,7 +83,18 @@ namespace WpfApp1.wrappers
             {
                 if (param.Value != "")
                 {
-                    string where = param.Key + "==\'" + param.Value + "\'";
+                    string where = "";
+                    try
+                    {
+                     int.Parse(param.Value);
+                     where = param.Key + "==" + param.Value ;
+
+                    }
+                    catch
+                    {
+
+                     where = param.Key + "==\'" + param.Value + "\'";
+                    }
                     Query += where + " && ";
                 }
             }

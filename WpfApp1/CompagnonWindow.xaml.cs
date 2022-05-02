@@ -18,9 +18,9 @@ namespace WpfApp1
     /// <summary>
     /// Logique d'interaction pour BuildWindow.xaml
     /// </summary>
-    public partial class BuildWindow : Window
+    public partial class CompagnonWindow : Window
     {
-        public BuildWindow()
+        public CompagnonWindow()
         {
             InitializeComponent();
         }
